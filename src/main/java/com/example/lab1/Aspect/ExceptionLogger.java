@@ -20,12 +20,14 @@ public class ExceptionLogger {
     private ExceptionService exceptionService;
 
 
+
     @AfterThrowing(pointcut = "@annotation(com.example.lab1.Aspect.annotation.ExceptionLoggerAnnotation)", throwing = "exception")
     public void logException(JoinPoint joinPoint, Exception exception) {
+
         //populating Exception object
         LocalDate date = LocalDate.now();
         String operation = joinPoint.getSignature().getName()+" method";
-        String type = exception.getMessage();
+        String type = exception.toString();
         ExceptionEntity myException = new ExceptionEntity(0,date,operation,type);
         exceptionService.save(myException);
         System.out.println("Exception logger ran...");

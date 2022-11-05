@@ -1,5 +1,6 @@
 package com.example.lab1.controller;
 
+import com.example.lab1.Aspect.annotation.ExceptionLoggerAnnotation;
 import com.example.lab1.Aspect.annotation.ExectutionTime;
 import com.example.lab1.entity.User;
 import com.example.lab1.entity.dto.UserDto;
@@ -36,6 +37,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ExectutionTime
+    @ExceptionLoggerAnnotation
     public User getUserById(@PathVariable long id){
         return userService.getUserById(id);
     }

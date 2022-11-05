@@ -21,13 +21,8 @@ import java.util.Date;
 public class ExecutionTimeAspect {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private LoggerService loggerService;
 
-    @Autowired
-    private LoggerRepo loggerRepo;
 
     @Pointcut("@annotation(com.example.lab1.Aspect.annotation.ExectutionTime)")
     public void executionTimeAnnotation(){
